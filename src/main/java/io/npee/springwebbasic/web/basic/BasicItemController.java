@@ -5,9 +5,7 @@ import io.npee.springwebbasic.domain.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -36,6 +34,46 @@ public class BasicItemController {
     @GetMapping("/add")
     public String addForm() {
         return "basic/addForm";
+    }
+
+    // @PostMapping("/add")
+    public String addItem(@RequestParam String itemName,
+                       @RequestParam int price,
+                       @RequestParam Integer quantity,
+                       Model model) {
+
+        Item item = new Item();
+        item.setItemName(itemName);
+        item.setPrice(price);
+        item.setQuantity(quantity);
+
+        itemRepository.save(item);
+        model.addAttribute("item", item);
+        return "/basic/item";
+    }
+
+    // @PostMapping("/add")
+    public String addItemV2(@ModelAttribute("item") Item item, Model model) {
+
+        itemRepository.save(item);
+        // model.addAttribute("item", item); // @ModelAttribute 에 의해 Model 자동 추가
+        return "/basic/item";
+    }
+
+    // @PostMapping("/add")
+    public String addItemV3(@ModelAttribute Item item) {
+
+        itemRepository.save(item);
+        // 속성 생략 시 class 의 첫 글자를 소문자로 치환해서 Model에 추가
+        return "/basic/item";
+    }
+
+    @PostMapping("/add")
+    public String addItemV4(Item item) {
+
+        itemRepository.save(item);
+        // 생략 시 @ModelAttribute 자동 적용
+        return "/basic/item";
     }
 
     @PostConstruct
