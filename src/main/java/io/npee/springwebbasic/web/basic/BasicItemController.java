@@ -2,6 +2,7 @@ package io.npee.springwebbasic.web.basic;
 
 import io.npee.springwebbasic.domain.Item;
 import io.npee.springwebbasic.domain.ItemRepository;
+import io.npee.springwebbasic.domain.ItemType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,11 @@ public class BasicItemController {
         regions.put("BUSAN", "부산");
         regions.put("JEJI", "제주");
         return regions;
+    }
+
+    @ModelAttribute("itemTypes")
+    public ItemType[] itemTypes() {
+        return ItemType.values();
     }
 
     @GetMapping
@@ -103,6 +109,7 @@ public class BasicItemController {
 
         log.info("item.getOpen() {}", item.getOpen());
         log.info("item.getRegions() {}", item.getRegions());
+        log.info("item.getItemType() {}", item.getItemType());
         Item savedItem = itemRepository.save(item);
         redirectAttributes.addAttribute("itemId", savedItem.getId());
         redirectAttributes.addAttribute("status", true);
