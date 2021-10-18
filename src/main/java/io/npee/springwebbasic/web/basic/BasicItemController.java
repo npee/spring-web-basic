@@ -29,7 +29,7 @@ public class BasicItemController {
         Map<String, String> regions = new LinkedHashMap<>();
         regions.put("SEOUL", "서울");
         regions.put("BUSAN", "부산");
-        regions.put("JEJI", "제주");
+        regions.put("JEJU", "제주");
         return regions;
     }
 
