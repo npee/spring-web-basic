@@ -34,7 +34,6 @@ public class ItemRepository {
         item.setQuantity(updateParams.getQuantity());
         item.setOpen(updateParams.getOpen());
         item.setRegions(updateParams.getRegions());
-        item.setItemName(updateParams.getItemName());
         item.setDeliveryCode(updateParams.getDeliveryCode());
         item.setItemType(updateParams.getItemType());
     }
