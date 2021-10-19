@@ -2,6 +2,7 @@ package io.npee.springwebbasic.domain;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Range;
+import org.hibernate.validator.constraints.ScriptAssert;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
@@ -9,6 +10,11 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
+// 글로벌 오류는 직접 작성하는게 낫다.
+//@ScriptAssert(
+//        lang = "javascript",
+//        script="-this.price * _this.quantity >= 10000",
+//        message = "총합이 10000원 넘게 입력해주세요")
 public class Item {
 
     private Long id;
