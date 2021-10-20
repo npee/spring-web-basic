@@ -1,6 +1,6 @@
-package io.npee.springwebbasic.web.validation;
+package io.npee.springwebbasic.web.item.validation;
 
-import io.npee.springwebbasic.web.validation.form.ItemSaveForm;
+import io.npee.springwebbasic.web.item.validation.form.ItemSaveForm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;

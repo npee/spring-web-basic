@@ -1,8 +1,11 @@
-package io.npee.springwebbasic.web.validation;
+package io.npee.springwebbasic.web.item.validation;
 
-import io.npee.springwebbasic.domain.*;
-import io.npee.springwebbasic.web.validation.form.ItemSaveForm;
-import io.npee.springwebbasic.web.validation.form.ItemUpdateForm;
+import io.npee.springwebbasic.domain.item.DeliveryCode;
+import io.npee.springwebbasic.domain.item.Item;
+import io.npee.springwebbasic.domain.item.ItemRepository;
+import io.npee.springwebbasic.domain.item.ItemType;
+import io.npee.springwebbasic.web.item.validation.form.ItemSaveForm;
+import io.npee.springwebbasic.web.item.validation.form.ItemUpdateForm;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -19,7 +22,7 @@ import java.util.Map;
 
 @Slf4j
 @Controller
-@RequestMapping("/validation/v4/items")
+@RequestMapping("/items")
 @RequiredArgsConstructor
 public class ValidationControllerV4 {
 

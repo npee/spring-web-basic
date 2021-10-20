@@ -1,7 +1,7 @@
 package io.npee.springwebbasic;
 
-import io.npee.springwebbasic.domain.Item;
-import io.npee.springwebbasic.domain.ItemRepository;
+import io.npee.springwebbasic.domain.item.Item;
+import io.npee.springwebbasic.domain.item.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

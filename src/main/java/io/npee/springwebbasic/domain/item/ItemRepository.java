@@ -1,4 +1,4 @@
-package io.npee.springwebbasic.domain;
+package io.npee.springwebbasic.domain.item;
 
 import org.springframework.stereotype.Repository;
 

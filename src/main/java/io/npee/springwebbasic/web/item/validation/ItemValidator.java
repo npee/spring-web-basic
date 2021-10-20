@@ -1,6 +1,6 @@
-package io.npee.springwebbasic.web.validation;
+package io.npee.springwebbasic.web.item.validation;
 
-import io.npee.springwebbasic.domain.Item;
+import io.npee.springwebbasic.domain.item.Item;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;

@@ -1,18 +1,16 @@
-package io.npee.springwebbasic.web.validation.form;
+package io.npee.springwebbasic.web.item.validation.form;
 
-import io.npee.springwebbasic.domain.ItemType;
+import io.npee.springwebbasic.domain.item.ItemType;
 import lombok.Data;
 import org.hibernate.validator.constraints.Range;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Data
-public class ItemUpdateForm {
-
-    @NotNull
-    private Long id;
+public class ItemSaveForm {
 
     @NotBlank
     private String itemName;
@@ -21,7 +19,8 @@ public class ItemUpdateForm {
     @Range(min = 1000, max = 1000000)
     private Integer price;
 
-    // 수정 시에는 자유롭게 설정가능
+    @NotNull
+    @Max(value = 9999)
     private Integer quantity;
 
     private Boolean open; //판매 여부

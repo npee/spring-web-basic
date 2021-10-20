@@ -1,9 +1,9 @@
-package io.npee.springwebbasic.web.basic;
+package io.npee.springwebbasic.web.item.basic;
 
-import io.npee.springwebbasic.domain.DeliveryCode;
-import io.npee.springwebbasic.domain.Item;
-import io.npee.springwebbasic.domain.ItemRepository;
-import io.npee.springwebbasic.domain.ItemType;
+import io.npee.springwebbasic.domain.item.DeliveryCode;
+import io.npee.springwebbasic.domain.item.Item;
+import io.npee.springwebbasic.domain.item.ItemRepository;
+import io.npee.springwebbasic.domain.item.ItemType;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

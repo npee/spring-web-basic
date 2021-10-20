@@ -1,6 +1,6 @@
 package io.npee.springwebbasic.validation;
 
-import io.npee.springwebbasic.domain.Item;
+import io.npee.springwebbasic.domain.item.Item;
 import org.junit.jupiter.api.Test;
 
 import javax.validation.ConstraintViolation;

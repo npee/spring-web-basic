@@ -1,13 +1,13 @@
 package io.npee.springwebbasic.domain;
 
-import org.assertj.core.api.Assertions;
+import io.npee.springwebbasic.domain.item.Item;
+import io.npee.springwebbasic.domain.item.ItemRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class ItemRepositoryTest {
 
