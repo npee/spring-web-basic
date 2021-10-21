@@ -10,7 +10,7 @@ import java.io.IOException;
 
 @Slf4j
 @Controller
-@RequestMapping("/error")
+@RequestMapping("/error-test")
 public class ServletExController {
 
     @GetMapping("/error-ex")
