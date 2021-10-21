@@ -1,5 +1,7 @@
 package io.npee.springwebbasic;
 
+import io.npee.springwebbasic.exception.resolver.MyHandlerExceptionResolver;
+import io.npee.springwebbasic.exception.resolver.UserHandlerExceptionResolver;
 import io.npee.springwebbasic.web.argumentresolver.LoginMemberArgumentResolver;
 import io.npee.springwebbasic.web.filter.LogFilter;
 import io.npee.springwebbasic.web.filter.LoginCheckFilter;
@@ -9,6 +11,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -18,6 +21,12 @@ import java.util.List;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+
+    @Override
+    public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
+        resolvers.add(new MyHandlerExceptionResolver());
+        resolvers.add(new UserHandlerExceptionResolver());
+    }
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
