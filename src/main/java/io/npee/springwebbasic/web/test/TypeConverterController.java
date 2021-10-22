@@ -1,5 +1,6 @@
 package io.npee.springwebbasic.web.test;
 
+import io.npee.springwebbasic.web.converter.IpPort;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,6 +23,13 @@ public class TypeConverterController {
     @GetMapping("/hello-v2")
     public String helloV2(@RequestParam Integer data) {
         System.out.println("data = " + data);
+        return "ok";
+    }
+
+    @GetMapping("/ip-port")
+    public String ipPort(@RequestParam IpPort ipPort) {
+        System.out.println("ipPort.getIp() = " + ipPort.getIp());
+        System.out.println("ipPort.getPort() = " + ipPort.getPort());
         return "ok";
     }
 }

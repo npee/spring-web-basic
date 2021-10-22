@@ -3,6 +3,10 @@ package io.npee.springwebbasic;
 import io.npee.springwebbasic.exception.resolver.MyHandlerExceptionResolver;
 import io.npee.springwebbasic.exception.resolver.UserHandlerExceptionResolver;
 import io.npee.springwebbasic.web.argumentresolver.LoginMemberArgumentResolver;
+import io.npee.springwebbasic.web.converter.IntegerToStringConverter;
+import io.npee.springwebbasic.web.converter.IpPortToStringConverter;
+import io.npee.springwebbasic.web.converter.StringToIntegerConverter;
+import io.npee.springwebbasic.web.converter.StringToIpPortConverter;
 import io.npee.springwebbasic.web.filter.LogFilter;
 import io.npee.springwebbasic.web.filter.LoginCheckFilter;
 import io.npee.springwebbasic.web.interceptor.LogInterceptor;
@@ -10,6 +14,7 @@ import io.npee.springwebbasic.web.interceptor.LoginCheckInterceptor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -21,6 +26,14 @@ import java.util.List;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry.addConverter(new StringToIntegerConverter());
+        registry.addConverter(new IntegerToStringConverter());
+        registry.addConverter(new StringToIpPortConverter());
+        registry.addConverter(new IpPortToStringConverter());
+    }
 
     @Override
     public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
