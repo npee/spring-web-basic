@@ -3,10 +3,7 @@ package io.npee.springwebbasic;
 import io.npee.springwebbasic.exception.resolver.MyHandlerExceptionResolver;
 import io.npee.springwebbasic.exception.resolver.UserHandlerExceptionResolver;
 import io.npee.springwebbasic.web.argumentresolver.LoginMemberArgumentResolver;
-import io.npee.springwebbasic.web.converter.IntegerToStringConverter;
-import io.npee.springwebbasic.web.converter.IpPortToStringConverter;
-import io.npee.springwebbasic.web.converter.StringToIntegerConverter;
-import io.npee.springwebbasic.web.converter.StringToIpPortConverter;
+import io.npee.springwebbasic.web.converter.*;
 import io.npee.springwebbasic.web.filter.LogFilter;
 import io.npee.springwebbasic.web.filter.LoginCheckFilter;
 import io.npee.springwebbasic.web.interceptor.LogInterceptor;
@@ -29,10 +26,13 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(new StringToIntegerConverter());
-        registry.addConverter(new IntegerToStringConverter());
+        // 주석처리 - 우선순위 영향
+//        registry.addConverter(new StringToIntegerConverter());
+//        registry.addConverter(new IntegerToStringConverter());
         registry.addConverter(new StringToIpPortConverter());
         registry.addConverter(new IpPortToStringConverter());
+
+        registry.addFormatter(new MyNumberFormatter());
     }
 
     @Override
